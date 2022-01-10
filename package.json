@@ -1,0 +1,24 @@
+{
+  "name": "cafeina-vagas-bot",
+  "version": "1.0.0",
+  "description": "Bot de vagas do Cafeina Vagas no Telegram",
+  "main": "index.js",
+  "scripts": {
+    "start": "node -r dotenv/config index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/compiladoras/cafeina-vagas-bot.git"
+  },
+  "author": "Compiladoras",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/compiladoras/cafeina-vagas-bot/issues"
+  },
+  "homepage": "https://github.com/compiladoras/cafeina-vagas-bot#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "telebot": "^1.4.1"
+  }
+}
