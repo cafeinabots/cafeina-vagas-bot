@@ -21,11 +21,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
+    - name: Pass the received secret to an action
+        uses: actions/setup-node@v2
+        with:
+          token: ${{ secrets.access-token }}
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+
     - run: npm ci
     - run: npm run build --if-present
       with:
