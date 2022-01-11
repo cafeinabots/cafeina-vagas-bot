@@ -27,10 +27,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-
-    - name: Pass the received secret to an action
-      uses: actions/setup-node@v2
-      with:
         token: ${{ secrets.BOT_TOKEN }}
 
     - run: npm ci
