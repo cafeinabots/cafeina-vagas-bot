@@ -24,7 +24,7 @@ CHAT | Conheça o Cafeína Help, nosso chat para tirar dúvidas: @CafeinaVagasCh
 SAC | Se você deseja conversar com um ADM, entre em contato pela nossa Central de Atendimento: @SAC_CafeinaVagas`;
 
 // On every text message
-bot.on("text", (msg) => {
+bot.on(["text", "forward"], (msg) => {
   let text = msg.text;
   let fromId = msg.from.id;
   let messageId = msg.message_id;
@@ -42,7 +42,3 @@ bot.on("text", (msg) => {
 });
 
 bot.connect();
-
-bot.on("foward", (msg) => {
-  console.log("User message foward", msg);
-});
