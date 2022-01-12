@@ -3,13 +3,17 @@ const bot = new TeleBot(process.env.BOT_TOKEN);
 
 // On every text message
 bot.on('text', msg => {
-    let id = msg.from.id;
+    let fromId = msg.from.id;
     let messageId = msg.message_id;
-    let chatId = msg.from.chatId;
+    let answer = `Oi, recebi sua mensagem! Obrigada por enviar uma vaga e/ou material para o nosso canal!
 
-    bot.forwardMessage(chatId, "@CafeinaVagasBot", messageId)
+Nossos ADMs humanos irão avaliar o link e, caso seja bacana para o grupo, o link será postado.
 
-    return bot.sendMessage(id, `Vaga recebida, obrigada!`);
+PS: Lembrando que só postamos vagas para iniciantes sem experiência.`;
+
+    bot.forwardMessage(-1001505347688, fromId, messageId);
+
+    return bot.sendMessage(fromId, answer);
 });
 
 bot.connect();
