@@ -14,7 +14,15 @@ PS: Lembrando que só postamos vagas para iniciantes sem experiência.`;
 
   let welcomeMessage = `Oi, eu sou a bot que recebe vagas e outros links para o @CafeinaVagas.
 
-❤ Fico no aguardo de novas vagas ou cursos.
+❤ Fico no aguardo de novas vagas, cursos ou outros materiais legais para compartilhar.
+
+CHAT | Conheça o Cafeína Help, nosso chat para tirar dúvidas: @CafeinaVagasChat
+
+SAC | Se você deseja conversar com um ADM, entre em contato pela nossa Central de Atendimento: @SAC_CafeinaVagas`;
+
+    let helpMessage = `Nosso bot recebe vagas, cursos e outros tipos de materiais. Basta enviar aqui em formato de texto ou link.
+
+❤ Fico no aguardo de novas vagas, cursos ou outros materiais legais para compartilhar.
 
 CHAT | Conheça o Cafeína Help, nosso chat para tirar dúvidas: @CafeinaVagasChat
 
@@ -24,6 +32,8 @@ SAC | Se você deseja conversar com um ADM, entre em contato pela nossa Central 
 
   if (text === "/start") {
     return bot.sendMessage(fromId, welcomeMessage);
+  } else if (text === "/help") {
+    return bot.sendMessage(fromId, helpMessage);
   } else {
     bot.forwardMessage(-1001505347688, fromId, messageId);
     return bot.sendMessage(fromId, answer);
