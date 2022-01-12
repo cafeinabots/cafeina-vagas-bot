@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node -r dotenv/config index.js",
+    "logs": "heroku logs --app=cafeina-vagas-bot",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
