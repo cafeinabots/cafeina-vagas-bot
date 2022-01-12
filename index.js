@@ -1,14 +1,6 @@
 const TeleBot = require("telebot");
 const bot = new TeleBot(process.env.BOT_TOKEN);
 
-app.listen(process.env.PORT || 3000, function () {
-  console.log(
-    "Node server listening on port %d in %s mode",
-    this.address().port,
-    app.settings.env
-  );
-});
-
 // On every text message
 bot.on("text", (msg) => {
   let text = msg.text;
