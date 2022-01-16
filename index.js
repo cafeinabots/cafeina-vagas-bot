@@ -1,4 +1,9 @@
-import { basicAnswer, welcomeMessage, helpMessage } from "./messages.js";
+import {
+  basicAnswer,
+  welcomeMessage,
+  helpMessage,
+  errorPhoto,
+} from "./messages.js";
 import Telebot from "telebot";
 
 const bot = new Telebot(process.env.BOT_TOKEN);
@@ -6,7 +11,7 @@ const bot = new Telebot(process.env.BOT_TOKEN);
 const CHAT_ID = -1001505347688;
 
 // On every text message
-bot.on(["text", "forward", "photo"], (msg) => {
+bot.on(["text", "forward"], (msg) => {
   let text = msg.text;
   let fromId = msg.from.id;
   let messageId = msg.message_id;
@@ -21,6 +26,10 @@ bot.on(["text", "forward", "photo"], (msg) => {
     bot.forwardMessage(CHAT_ID, fromId, messageId);
     return bot.sendMessage(fromId, basicAnswer);
   }
+});
+
+bot.on("photo", (image) => {
+  return bot.sendMessage(fromId, errorPhoto);
 });
 
 bot.connect();
