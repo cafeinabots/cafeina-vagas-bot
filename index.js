@@ -1,9 +1,4 @@
-import {
-  basicAnswer,
-  welcomeMessage,
-  helpMessage,
-  errorPhoto,
-} from "./messages.js";
+import { basicAnswer, welcomeMessage, helpMessage } from "./messages.js";
 import Telebot from "telebot";
 
 const bot = new Telebot(process.env.BOT_TOKEN);

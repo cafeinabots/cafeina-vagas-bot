@@ -19,5 +19,3 @@ export const helpMessage = `Nosso bot recebe vagas, cursos e outros tipos de mat
 💬 Conheça o Cafeína Help, nosso chat para tirar dúvidas: @CafeinaVagasChat
 
 🎧 Se você deseja conversar com um ADM, entre em contato pela nossa Central de Atendimento: @SAC_CafeinaVagas`;
-
-export const errorPhoto = "Peço desculpa, mas neste momento eu não ofereço suporte para imagens, apenas mensagens de texto e links. 😥";
