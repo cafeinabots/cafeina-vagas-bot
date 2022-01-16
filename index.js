@@ -28,10 +28,4 @@ bot.on(["text", "forward", "photo"], (msg) => {
   }
 });
 
-bot.on("photo", (_image) => {
-  let fromId = msg.from.id;
-
-  return bot.sendMessage(fromId, errorPhoto);
-});
-
 bot.connect();
