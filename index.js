@@ -28,7 +28,9 @@ bot.on(["text", "forward"], (msg) => {
   }
 });
 
-bot.on("photo", (image) => {
+bot.on("photo", (_image) => {
+  let fromId = msg.from.id;
+
   return bot.sendMessage(fromId, errorPhoto);
 });
 
