@@ -5,14 +5,14 @@
         <img src="https://img.shields.io/badge/licen%C3%A7a-MIT-green" />
     </a>
     <a href="https://t.me/CafeinaVagas">
-        <img src="https://img.shields.io/badge/comunidade-@cafeinavagas-blue" />
+        <img src="https://img.shields.io/badge/canal-@cafeinavagas-blue" />
     </a>
     <a href="https://t.me/CafeinaVagas">
         <img src="https://img.shields.io/badge/chat-@cafeinavagaschat-orange" />
     </a>
 </p>
 
-Bot da comunidade @CafeinaVagas do Telegram.
+Bot da comunidade **@CafeinaVagas** do Telegram.
 
 Esse bot é responsável por receber recomendações de vagas para iniciantes e outros materiais bacanas que podemos postar em nosso canal.
 
@@ -30,4 +30,4 @@ Para contribuir, faça um `Fork` desse repositório, realize suas modificações
 
 ## Contato
 
-Para entrar em contato com a equipe, você pode entrar em contato com nosso bot de atendimento no Telegram ([@SAC_CafeinaBot](https://t.me/SAC_CafeinaBot)) ou enviar e-mail para contato@compiladoras.com.br
+Para entrar em contato com a equipe, você pode enviar uma mensagem para o nosso bot de atendimento no Telegram ([@SAC_CafeinaBot](https://t.me/SAC_CafeinaBot)) ou enviar e-mail para contato@compiladoras.com.br
