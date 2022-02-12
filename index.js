@@ -18,7 +18,7 @@ bot.on(["text", "forward", "photo"], (msg) => {
   } else if (text === "/help") {
     return bot.sendMessage(fromId, helpMessage);
   } else {
-    return bot.sendMessage(CHAT_ID, text);
+    bot.sendMessage(CHAT_ID, text);
     return bot.sendMessage(fromId, basicAnswer);
   }
 });
