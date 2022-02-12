@@ -10,7 +10,7 @@ export const basicAnswer = `Oi, recebi sua mensagem! Obrigada por enviar uma vag
 
 Nossos ADMs humanos irão avaliar o link e, caso seja bacana para o grupo, o link será postado.
 
-PS: Lembrando que só postamos vagas para #iniciantes sem experiência, combinado?`;
+PS: Lembrando que só postamos vagas para #iniciantes e sem experiência. 😉`;
 
 export const helpMessage = `Nosso bot recebe vagas, cursos e outros tipos de materiais. Basta enviar aqui em formato de texto ou link.
 
