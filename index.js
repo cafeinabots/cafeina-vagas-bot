@@ -10,6 +10,7 @@ bot.on(["text", "forward", "photo", "document"], (msg) => {
   let text = msg.text;
   let fromId = msg.from.id;
   let messageId = msg.message_id;
+  let promise;
 
   console.log("[message]: ", JSON.stringify(msg));
 
@@ -18,8 +19,14 @@ bot.on(["text", "forward", "photo", "document"], (msg) => {
   } else if (text === "/help") {
     return bot.sendMessage(fromId, helpMessage);
   } else {
-    bot.sendMessage(CHAT_ID, text);
-    return bot.sendMessage(fromId, basicAnswer);
+    promise = bot.sendMessage(CHAT_ID, text);
+
+    return promise.catch(error => { 
+      console.log('[error]', error); 
+      bot.sendMessage(fromId, errorMessage + error);
+    });
+
+    // return bot.sendMessage(fromId, basicAnswer);
   }
 });
 

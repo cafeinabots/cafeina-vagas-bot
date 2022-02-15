@@ -19,3 +19,7 @@ export const helpMessage = `Nosso bot recebe vagas, cursos e outros tipos de mat
 💬 Conheça o Cafeína Help, nosso chat para tirar dúvidas: @CafeinaVagasChat
 
 🎧 Se você deseja conversar com um ADM, entre em contato pela nossa Central de Atendimento: @SAC_CafeinaVagas`;
+
+export const errorMessage = `Ops, parece que ocorreu um erro. 🥺
+
+Para nos ajudar a melhorar cada vez mais o nosso bot, por favor envie o erro a seguir no nosso e-mail (contato@compiladoras.com.br): `
