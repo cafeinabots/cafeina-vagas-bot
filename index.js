@@ -1,4 +1,5 @@
-import { basicAnswer, welcomeMessage, helpMessage } from "./messages.js";
+import { basicAnswer, welcomeMessage, helpMessage, errorMessage, typeDocument } from "./messages.js";
+
 import Telebot from "telebot";
 
 const bot = new Telebot(process.env.BOT_TOKEN);
@@ -6,7 +7,7 @@ const bot = new Telebot(process.env.BOT_TOKEN);
 const CHAT_ID = -1001505347688;
 
 // On every text message
-bot.on(["text", "forward", "photo", "document"], (msg) => {
+bot.on(["text", "forward", "photo"], (msg) => {
   let text = msg.text;
   let fromId = msg.from.id;
   let messageId = msg.message_id;
@@ -19,15 +20,21 @@ bot.on(["text", "forward", "photo", "document"], (msg) => {
   } else if (text === "/help") {
     return bot.sendMessage(fromId, helpMessage);
   } else {
+    bot.sendMessage(fromId, basicAnswer);
+
     promise = bot.sendMessage(CHAT_ID, text);
 
     return promise.catch(error => { 
-      console.log('[error]', error); 
+      console.log('[error]: ', error); 
       bot.sendMessage(fromId, errorMessage + error);
     });
-
-    // return bot.sendMessage(fromId, basicAnswer);
   }
+});
+
+bot.on("document", (msg) => {
+  let fromId = msg.from.id;
+
+  return bot.sendMessage(fromId, typeDocument);
 });
 
 bot.connect();

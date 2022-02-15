@@ -22,4 +22,8 @@ export const helpMessage = `Nosso bot recebe vagas, cursos e outros tipos de mat
 
 export const errorMessage = `Ops, parece que ocorreu um erro. 🥺
 
-Para nos ajudar a melhorar cada vez mais o nosso bot, por favor envie o erro a seguir no nosso e-mail (contato@compiladoras.com.br): `
+Para nos ajudar a melhorar cada vez mais o nosso bot, por favor envie o erro a seguir no nosso e-mail (contato@compiladoras.com.br): `;
+
+export const typeDocument = `No momento nosso bot não aceita vagas no formato documento. 😔
+
+Se essa vaga tiver alguma outra discrição ou site, nos envie porque assim poderemos analisar ela!`;
