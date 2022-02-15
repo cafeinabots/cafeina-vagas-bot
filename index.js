@@ -41,8 +41,8 @@ bot.on(["text", "forward", "photo"], (msg) => {
     promise = bot.sendMessage(CHAT_ID, text);
 
     return promise.catch(error => { 
-      console.log('[error]: ', error); 
-      bot.sendMessage(fromId, errorMessage + error);
+      console.log('[error]: ', JSON.stringify(error)); 
+      bot.sendMessage(fromId, errorMessage + JSON.stringify(error));
     });
   }
 });
