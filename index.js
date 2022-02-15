@@ -3,8 +3,8 @@ import {
   welcomeMessage, 
   helpMessage, 
   errorMessage, 
-  typeDocument 
-  floodMessage
+  typeDocument,
+  floodMessage,
 } from "./messages.js";
 
 import Telebot from "telebot";
@@ -15,7 +15,7 @@ const bot = new Telebot({
     pluginConfig: { 
       floodProtection: { 
         interval: 2, 
-          message: floodMessage
+        message: floodMessage
       } 
     }
 });
