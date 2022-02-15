@@ -11,7 +11,7 @@ bot.on(["text", "forward", "photo", "document"], (msg) => {
   let fromId = msg.from.id;
   let messageId = msg.message_id;
 
-  console.log("User message information", msg);
+  console.log("[message]: ", JSON.stringify(msg));
 
   if (text === "/start") {
     return bot.sendMessage(fromId, welcomeMessage);
