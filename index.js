@@ -1,8 +1,24 @@
-import { basicAnswer, welcomeMessage, helpMessage, errorMessage, typeDocument } from "./messages.js";
+import {
+  basicAnswer,
+  welcomeMessage, 
+  helpMessage, 
+  errorMessage, 
+  typeDocument 
+  floodMessage
+} from "./messages.js";
 
 import Telebot from "telebot";
 
-const bot = new Telebot(process.env.BOT_TOKEN);
+const bot = new Telebot({
+  token: process.env.BOT_TOKEN,
+  usePlugins: ['floodProtection'], 
+    pluginConfig: { 
+      floodProtection: { 
+        interval: 2, 
+          message: floodMessage
+      } 
+    }
+});
 
 const CHAT_ID = -1001505347688;
 
