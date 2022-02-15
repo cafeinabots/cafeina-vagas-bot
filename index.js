@@ -6,7 +6,7 @@ const bot = new Telebot(process.env.BOT_TOKEN);
 const CHAT_ID = -1001505347688;
 
 // On every text message
-bot.on(["text", "forward", "photo"], (msg) => {
+bot.on(["text", "forward", "photo", "document"], (msg) => {
   let text = msg.text;
   let fromId = msg.from.id;
   let messageId = msg.message_id;
