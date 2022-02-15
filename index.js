@@ -24,4 +24,4 @@ bot.on(["text", "forward", "photo", "document"], (msg) => {
 });
 
 // bot.connect();
-bot.stop();
+bot.start();
