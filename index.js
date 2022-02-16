@@ -47,7 +47,7 @@ bot.on(["text"], (msg) => {
 });
 
 bot.on(["photo"], (msg) => {
-  let photo = msg.photo.file_id;
+  let photo = msg.photo;
   console.log('photoo', photo)
   let fromId = msg.from.id;
   let messageId = msg.message_id;
