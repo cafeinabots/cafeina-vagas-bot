@@ -22,8 +22,7 @@ const bot = new Telebot({
 
 const CHAT_ID = -1001505347688;
 
-// On every text message
-bot.on(["text", "forward", "photo"], (msg) => {
+bot.on(["text"], (msg) => {
   let text = msg.text;
   let fromId = msg.from.id;
   let messageId = msg.message_id;
@@ -38,7 +37,7 @@ bot.on(["text", "forward", "photo"], (msg) => {
   } else {
     bot.sendMessage(fromId, basicAnswer);
 
-    promise = bot.sendMessage(CHAT_ID, messageId);
+    promise = bot.sendMessage(CHAT_ID, text);
 
     return promise.catch(error => { 
       console.log('[error]: ', JSON.stringify(error)); 
