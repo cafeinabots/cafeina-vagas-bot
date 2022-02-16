@@ -38,7 +38,7 @@ bot.on(["text", "forward", "photo"], (msg) => {
   } else {
     bot.sendMessage(fromId, basicAnswer);
 
-    promise = bot.sendMessage(CHAT_ID, text);
+    promise = bot.sendMessage(CHAT_ID, messageId);
 
     return promise.catch(error => { 
       console.log('[error]: ', JSON.stringify(error)); 
