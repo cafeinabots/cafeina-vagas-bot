@@ -3,7 +3,7 @@ import {
   welcomeMessage, 
   helpMessage, 
   errorMessage, 
-  typeDocument,
+  wrongFormat,
   floodMessage,
 } from "./messages.js";
 
@@ -51,13 +51,14 @@ bot.on(["photo"], (msg) => {
   console.log('photoo', photo)
   let fromId = msg.from.id;
   let messageId = msg.message_id;
+  let caption = msg.caption;
   let promise;
 
   console.log("[photo message]: ", JSON.stringify(msg));
 
     bot.sendMessage(fromId, basicAnswer);
 
-    promise = bot.sendPhoto(CHAT_ID, photo);
+    promise = bot.sendPhoto(CHAT_ID, photo, { caption });
 
     return promise.catch(error => { 
       console.log('[error]: ', JSON.stringify(error)); 
@@ -88,7 +89,7 @@ bot.on(["foward"], (msg) => {
 bot.on("document", (msg) => {
   let fromId = msg.from.id;
 
-  return bot.sendMessage(fromId, typeDocument);
+  return bot.sendMessage(fromId, wrongFormat);
 });
 
 bot.connect();
