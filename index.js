@@ -47,7 +47,7 @@ bot.on(["text"], (msg) => {
 });
 
 bot.on(["photo"], (msg) => {
-  let text = msg.text;
+  let photo = msg.photo.file_id;
   let fromId = msg.from.id;
   let messageId = msg.message_id;
   let promise;
@@ -56,7 +56,7 @@ bot.on(["photo"], (msg) => {
 
     bot.sendMessage(fromId, basicAnswer);
 
-    promise = bot.sendMessage(CHAT_ID, text);
+    promise = bot.sendPhoto(CHAT_ID, photo);
 
     return promise.catch(error => { 
       console.log('[error]: ', JSON.stringify(error)); 
