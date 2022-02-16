@@ -28,7 +28,7 @@ bot.on(["text"], (msg) => {
   let messageId = msg.message_id;
   let promise;
 
-  console.log("[message]: ", JSON.stringify(msg));
+  console.log("[text message]: ", JSON.stringify(msg));
 
   if (text === "/start") {
     return bot.sendMessage(fromId, welcomeMessage);
@@ -44,6 +44,44 @@ bot.on(["text"], (msg) => {
       bot.sendMessage(fromId, errorMessage + JSON.stringify(error));
     });
   }
+});
+
+bot.on(["photo"], (msg) => {
+  let text = msg.text;
+  let fromId = msg.from.id;
+  let messageId = msg.message_id;
+  let promise;
+
+  console.log("[photo message]: ", JSON.stringify(msg));
+
+    bot.sendMessage(fromId, basicAnswer);
+
+    promise = bot.sendMessage(CHAT_ID, text);
+
+    return promise.catch(error => { 
+      console.log('[error]: ', JSON.stringify(error)); 
+      bot.sendMessage(fromId, errorMessage + JSON.stringify(error));
+    });
+  
+});
+
+bot.on(["foward"], (msg) => {
+  let text = msg.text;
+  let fromId = msg.from.id;
+  let messageId = msg.message_id;
+  let promise;
+
+  console.log("[foward message]: ", JSON.stringify(msg));
+
+    bot.sendMessage(fromId, basicAnswer);
+
+    promise = bot.sendMessage(CHAT_ID, text);
+
+    return promise.catch(error => { 
+      console.log('[error]: ', JSON.stringify(error)); 
+      bot.sendMessage(fromId, errorMessage + JSON.stringify(error));
+    });
+  
 });
 
 bot.on("document", (msg) => {
