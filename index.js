@@ -14,7 +14,7 @@ const bot = new Telebot({
   usePlugins: ['floodProtection'], 
     pluginConfig: { 
       floodProtection: { 
-        interval: 2, 
+        interval: 3, 
         message: floodMessage
       } 
     }
