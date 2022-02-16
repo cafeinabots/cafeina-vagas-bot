@@ -86,7 +86,7 @@ bot.on(["foward"], (msg) => {
   
 });
 
-bot.on("document", (msg) => {
+bot.on(["document", "audio", "video", "animation"], (msg) => {
   let fromId = msg.from.id;
 
   return bot.sendMessage(fromId, wrongFormat);
