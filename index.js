@@ -67,7 +67,7 @@ bot.on(["photo"], (msg) => {
   
 });
 
-bot.on(["foward"], (msg) => {
+bot.on(["forward"], (msg) => {
   let text = msg.text;
   let fromId = msg.from.id;
   let messageId = msg.message_id;
@@ -75,7 +75,7 @@ bot.on(["foward"], (msg) => {
 
   console.log("[foward message]: ", JSON.stringify(msg));
 
-    bot.sendMessage(fromId, "No momento não estamos aceitando mensagens encaminhadas. 💔 Poderia copiar e colar aqui?");
+    bot.sendMessage(fromId, basicAnswer);
 
     promise = bot.sendMessage(CHAT_ID, text);
 
