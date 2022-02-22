@@ -75,7 +75,7 @@ bot.on(["foward"], (msg) => {
 
   console.log("[foward message]: ", JSON.stringify(msg));
 
-    bot.sendMessage(fromId, basicAnswer);
+    bot.sendMessage(fromId, "No momento não estamos aceitando mensagens encaminhadas. 💔 Poderia copiar e colar aqui?");
 
     promise = bot.sendMessage(CHAT_ID, text);
 
