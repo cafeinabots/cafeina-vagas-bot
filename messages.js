@@ -26,6 +26,6 @@ Para nos ajudar a melhorar cada vez mais o nosso bot, por favor envie o erro a s
 
 export const wrongFormat = `No momento nosso bot não aceita vagas nesse formato. 😔
 
-Se essa vaga tiver alguma outra discrição ou site, nos envie porque assim poderemos analisar ela!`;
+Se essa vaga tiver alguma outra descrição ou site, nos envie porque assim poderemos analisar ela!`;
 
 export const floodMessage = 'Opa, você enviou muitas mensagens em um curto período!';
