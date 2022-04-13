@@ -68,16 +68,24 @@ bot.on(["photo"], (msg) => {
 });
 
 bot.on(["forward"], (msg) => {
-  let text = msg.text;
+  let {text, photo, caption, media_group_id: mediaGroupId} = msg;
   let fromId = msg.from.id;
   let messageId = msg.message_id;
   let promise;
 
   console.log("[foward message]: ", JSON.stringify(msg));
 
+  if(text) {
     bot.sendMessage(fromId, basicAnswer);
-
     promise = bot.sendMessage(CHAT_ID, text);
+  }
+  else if(photo && (mediaGroupId === undefined)) {
+    bot.sendMessage(fromId, basicAnswer);
+    promise = bot.sendPhoto(CHAT_ID, photo[0].file_id, { caption });
+  }
+  else {
+    return bot.sendMessage(fromId, wrongFormat);
+  }
 
     return promise.catch(error => { 
       console.log('[error]: ', JSON.stringify(error)); 
