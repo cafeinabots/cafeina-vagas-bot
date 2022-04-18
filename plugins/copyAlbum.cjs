@@ -38,7 +38,8 @@ module.exports = {
 
       const mediaGroupId = data.message.media_group_id;
       const isAlbum = !!mediaGroupId;
-      if (!isAlbum) return data;
+      const isPrivate = data.message.chat.type === "private";
+      if (!isAlbum || !isPrivate) return data;
 
       const msg = data.message;
       const fromId = msg.from.id;

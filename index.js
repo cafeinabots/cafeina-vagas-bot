@@ -33,6 +33,9 @@ bot.on(["text"], (msg, self) => {
   let fromId = msg.from.id;
   let messageId = msg.message_id;
   let promise;
+  if(msg.chat.type !== "private") {
+    return;
+  }
 
   console.log("[text message]: ", JSON.stringify(msg));
 
@@ -58,6 +61,9 @@ bot.on(["photo"], (msg) => {
   let fromId = msg.from.id;
   let messageId = msg.message_id;
   let promise;
+  if(msg.chat.type !== "private") {
+    return;
+  }
 
   console.log("[photo message]: ", JSON.stringify(msg));
 
@@ -86,6 +92,9 @@ bot.on(["forward"], (msg) => {
   let fromId = msg.from.id;
   let messageId = msg.message_id;
   let promise;
+  if(msg.chat.type !== "private") {
+    return;
+  }
 
   console.log("[foward message]: ", JSON.stringify(msg));
 
@@ -116,6 +125,9 @@ bot.on(["forward"], (msg) => {
 bot.on(["document", "audio", "video", "animation"], (msg) => {
   let fromId = msg.from.id;
   let messageId = msg.message_id;
+  if(msg.chat.type !== "private") {
+    return;
+  }
 
   return bot.sendMessage(fromId, wrongFormat, {replyToMessage: messageId});
 });
