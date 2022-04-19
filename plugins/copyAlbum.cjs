@@ -57,7 +57,9 @@ module.exports = {
           if (diff < timeout) {
             if (!user.warned) {
               user.warned = true;
-              bot.sendMessage(fromId, textFlood);
+              setTimeout(() => {
+                bot.sendMessage(fromId, textFlood);
+              }, timeout * 1000 + 2000);
             }
             delete userList[fromId][mediaGroupId];
             return data;
