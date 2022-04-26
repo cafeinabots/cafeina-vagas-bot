@@ -25,12 +25,13 @@ module.exports = {
   id: "floodProtectionV2",
   defaultConfig: {
     interval: 5, // segundos
-    message: "Too many messages, relax!",
+    messageFlood: (seconds) =>
+      `Too many messages, relax, wait ${seconds} seconds!`,
   },
 
   plugin(bot, pluginConfig) {
     const interval = Number(pluginConfig.interval) || 1;
-    const text = pluginConfig.message;
+    const textFlood = pluginConfig.messageFlood(interval);
 
     bot.mod("message", (data) => {
       const { message: msg } = data;
@@ -39,13 +40,15 @@ module.exports = {
       const user = userList[fromId];
       const { media_group_id: mediaGroupId } = msg;
 
-      const isAlbum = !!mediaGroupId;
+      const isAlbum = Boolean(mediaGroupId);
 
       if (user && !isAlbum) {
         const warned = user.warned;
         const flooding = isFlooding(fromId, now, interval);
         if (flooding) {
-          if (!warned) bot.sendMessage(fromId, text);
+          if (!warned) {
+            bot.sendMessage(fromId, textFlood);
+          }
           data.message = {};
         }
       } else if (!user) {
