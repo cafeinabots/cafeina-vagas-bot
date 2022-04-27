@@ -20,7 +20,7 @@ Esse bot é responsável por receber recomendações de vagas para iniciantes e 
 
 - Usamos a biblioteca [Telebot](https://github.com/mullwar/telebot) para criar o bot
 - Linguagem usada: **Node.js**
-- O worker está rodando em um `dyno` gratuito no **Heroku**
+- O nosso servidor está rodando no Replit.
 
 ## Como contribuir?
 
