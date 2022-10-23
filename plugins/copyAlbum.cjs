@@ -45,6 +45,10 @@ module.exports = {
 
       const msg = data.message;
       const fromId = msg.from.id;
+      const firstName = msg.from.first_name;
+      const lastName = msg.from.last_name;
+      const name = [firstName, lastName].filter(Boolean).join(" ") || msg.from.username || "";
+      let mention = `[${fromId}](tg://user?id=${fromId})`;
       const { photo, caption, message_id: messageId } = msg;
       const now = new Date(msg.date);
 
@@ -77,7 +81,8 @@ module.exports = {
         user[mediaGroupId].mediaList.push({
           type: "photo",
           media: file_id,
-          caption: caption || "",
+          caption: caption | !user[mediaGroupId].mediaList.length ? `👤 *Enviado por:* ${name} (${mention})\n${caption || ""}` : "",
+          parse_mode: caption | !user[mediaGroupId].mediaList.length ? "Markdown" : undefined,
         });
         if (user[mediaGroupId] !== undefined) {
           clearTimeout(user[mediaGroupId].timeoutId);

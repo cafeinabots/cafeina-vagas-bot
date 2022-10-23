@@ -38,6 +38,10 @@ bot.on(["text"], (msg) => {
   let text = msg.text;
   let fromId = msg.from.id;
   let messageId = msg.message_id;
+  let firstName = msg.from.first_name;
+  let lastName = msg.from.last_name;
+  let name = [firstName, lastName].filter(Boolean).join(" ") || msg.from.username || "";
+  let mention = `[${fromId}](tg://user?id=${fromId})`;
   let promise;
   if (msg.chat.type !== "private") {
     return;
@@ -52,7 +56,7 @@ bot.on(["text"], (msg) => {
   }
   bot.sendMessage(fromId, basicAnswer, { replyToMessage: messageId });
 
-  promise = bot.sendMessage(CHAT_ID, text);
+  promise = bot.sendMessage(CHAT_ID, `👤 *Enviado por:* ${name} (${mention})\n${text}`, { parseMode: "Markdown" });
 
   return promise.catch((error) => {
     console.log("[error]: ", JSON.stringify(error));
@@ -97,6 +101,10 @@ bot.on(["forward"], (msg) => {
   let { text, photo, caption, media_group_id: mediaGroupId } = msg;
   let fromId = msg.from.id;
   let messageId = msg.message_id;
+  let firstName = msg.from.first_name;
+  let lastName = msg.from.last_name;
+  let name = [firstName, lastName].filter(Boolean).join(" ") || msg.from.username || "";
+  let mention = `[${fromId}](tg://user?id=${fromId})`;
   let promise;
   if (msg.chat.type !== "private") {
     return;
@@ -106,7 +114,7 @@ bot.on(["forward"], (msg) => {
 
   if (text) {
     bot.sendMessage(fromId, basicAnswer, { replyToMessage: messageId });
-    promise = bot.sendMessage(CHAT_ID, text);
+    promise = bot.sendMessage(CHAT_ID, `👤 *Enviado por:* ${name} (${mention})\n${text}`, { parseMode: "Markdown" });
   } else if (photo && mediaGroupId === undefined) {
     bot.sendMessage(fromId, basicAnswer, { replyToMessage: messageId });
     promise = bot.sendPhoto(CHAT_ID, photo[0].file_id, { caption });
