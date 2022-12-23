@@ -10,6 +10,7 @@ import {
 } from "./messages.js";
 
 import Telebot from "telebot";
+import http from "http";
 
 const bot = new Telebot({
   token: process.env.BOT_TOKEN,
@@ -146,3 +147,10 @@ bot.on(["document", "audio", "video", "animation"], (msg) => {
 });
 
 bot.connect();
+
+http
+  .createServer(function(req, res) {
+    res.write("Bot's running!"); //write a response to the client
+    res.end(); //end the response
+  })
+  .listen(8080); //the server object listens on port 8080
