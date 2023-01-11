@@ -81,8 +81,7 @@ module.exports = {
         user[mediaGroupId].mediaList.push({
           type: "photo",
           media: file_id,
-          caption: caption | !user[mediaGroupId].mediaList.length ? `👤 *Enviado por:* ${name} (${mention})\n${caption || ""}` : "",
-          parse_mode: caption | !user[mediaGroupId].mediaList.length ? "Markdown" : undefined,
+          caption: caption | !user[mediaGroupId].mediaList.length ? `👤 Enviado por: ${name} (${fromId})\n${caption || ""}` : "",
         });
         if (user[mediaGroupId] !== undefined) {
           clearTimeout(user[mediaGroupId].timeoutId);

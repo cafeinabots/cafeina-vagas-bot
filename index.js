@@ -10,6 +10,7 @@ import {
 } from "./messages.js";
 
 import Telebot from "telebot";
+import http from "http";
 
 const bot = new Telebot({
   token: process.env.BOT_TOKEN,
@@ -56,7 +57,7 @@ bot.on(["text"], (msg) => {
   }
   bot.sendMessage(fromId, basicAnswer, { replyToMessage: messageId });
 
-  promise = bot.sendMessage(CHAT_ID, `👤 *Enviado por:* ${name} (${mention})\n${text}`, { parseMode: "Markdown" });
+  promise = bot.sendMessage(CHAT_ID, `👤 Enviado por: ${name} (${fromId})\n${text}`);
 
   return promise.catch((error) => {
     console.log("[error]: ", JSON.stringify(error));
@@ -70,6 +71,9 @@ bot.on(["photo"], (msg) => {
   let { photo, caption, media_group_id: mediaGroupId } = msg;
   let fromId = msg.from.id;
   let messageId = msg.message_id;
+  let firstName = msg.from.first_name;
+  let lastName = msg.from.last_name;
+  let name = [firstName, lastName].filter(Boolean).join(" ") || msg.from.username || "";
   let promise;
   if (msg.chat.type !== "private") {
     return;
@@ -79,7 +83,8 @@ bot.on(["photo"], (msg) => {
 
   if (photo && mediaGroupId === undefined) {
     bot.sendMessage(fromId, basicAnswer, { replyToMessage: messageId });
-    promise = bot.sendPhoto(CHAT_ID, photo[0].file_id, { caption });
+    console.log("[photo message]: ", `👤 Enviado por: ${name} (${fromId})\n${caption || ""}`);
+    promise = bot.sendPhoto(CHAT_ID, photo[0].file_id, { caption: `👤 Enviado por: ${name} (${fromId})\n${caption || ""}` });
   } else if (mediaGroupId === undefined) {
     promise = bot.sendMessage(fromId, wrongFormat, {
       replyToMessage: messageId,
@@ -114,10 +119,10 @@ bot.on(["forward"], (msg) => {
 
   if (text) {
     bot.sendMessage(fromId, basicAnswer, { replyToMessage: messageId });
-    promise = bot.sendMessage(CHAT_ID, `👤 *Enviado por:* ${name} (${mention})\n${text}`, { parseMode: "Markdown" });
+    promise = bot.sendMessage(CHAT_ID, `👤 Enviado por: ${name} (${fromId})\n${text}`);
   } else if (photo && mediaGroupId === undefined) {
     bot.sendMessage(fromId, basicAnswer, { replyToMessage: messageId });
-    promise = bot.sendPhoto(CHAT_ID, photo[0].file_id, { caption });
+    promise = bot.sendPhoto(CHAT_ID, photo[0].file_id, { caption: `👤 Enviado por: ${name} (${fromId})\n${caption || ""}` });
   } else if (mediaGroupId === undefined) {
     promise = bot.sendMessage(fromId, wrongFormat, {
       replyToMessage: messageId,
@@ -146,3 +151,10 @@ bot.on(["document", "audio", "video", "animation"], (msg) => {
 });
 
 bot.connect();
+
+http
+  .createServer(function(req, res) {
+    res.write("Bot's running!"); //write a response to the client
+    res.end(); //end the response
+  })
+  .listen(8080); //the server object listens on port 8080
