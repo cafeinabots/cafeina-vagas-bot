@@ -28,11 +28,5 @@ export const wrongFormat = `No momento nosso bot não aceita vagas nesse formato
 
 Se essa vaga tiver alguma outra descrição ou site, nos envie porque assim poderemos analisar ela!`;
 
-export const floodMessage = (seconds) =>
+export const floodMessage = seconds =>
   `Opa, você enviou muitas mensagens em um curto período! aguarde ${seconds} segundos para enviar outra mensagem!`;
-
-export const floodAlbum = (seconds) =>
-  `Opa, você enviou muitos álbuns em um curto período! aguarde ${seconds} segundos para enviar outro álbum!`;
-
-export const albumMaxLength = (limitImages) =>
-  `Opa, você só pode enviar álbuns com até ${limitImages} fotos. Tente novamente! 😉`;

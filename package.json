@@ -1,26 +1,36 @@
 {
   "name": "cafeina-vagas-bot",
-  "version": "1.0.0",
-  "type": "module",
+  "version": "2.0.0",
   "description": "Bot de vagas do Cafeina Vagas no Telegram",
-  "main": "index.js",
+  "main": "api/index.ts",
   "scripts": {
-    "start": "node -r dotenv/config index.js",
-    "logs": "heroku logs --app=cafeina-vagas-bot",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "postbuild": "bash postbuild-set-webhook.sh",
+    "dev": "nodemon src/main.ts",
+    "format": "prettier --write 'src/**/*.ts'"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/compiladoras/cafeina-vagas-bot.git"
+    "url": "git+https://github.com/cafeinabots/cafeina-vagas-bot.git"
   },
   "author": "Compiladoras",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/compiladoras/cafeina-vagas-bot/issues"
+    "url": "https://github.com/cafeinabots/cafeina-vagas-bot/issues"
   },
-  "homepage": "https://github.com/compiladoras/cafeina-vagas-bot#readme",
+  "homepage": "https://github.com/cafeinabots/cafeina-vagas-bot#readme",
   "dependencies": {
-    "dotenv": "^10.0.0",
-    "telebot": "^1.4.1"
+    "@grammyjs/ratelimiter": "^1.1.6",
+    "@grammyjs/transformer-throttler": "^1.2.1",
+    "dotenv": "^16.0.3",
+    "grammy": "^1.6.1"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.5",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1",
+    "prettier-plugin-organize-imports": "^3.2.2",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
   }
 }
