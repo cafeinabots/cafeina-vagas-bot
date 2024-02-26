@@ -7,7 +7,8 @@ export const modEntities = (msg: Message): { header: string; newEntities: Messag
   const last_name = msg.from?.last_name;
   const fullname = [first_name, last_name].filter(Boolean).join(' ');
   const username = msg.from?.username;
-  const header = `👤 Enviado por: ${fullname} #id${from}`;
+  const prefix = '👤 Enviado por: ';
+  const header = `${prefix}${fullname} #id${from}`;
   const headerEntities: MessageEntity[] = [
     {
       offset: 0,
@@ -27,7 +28,7 @@ export const modEntities = (msg: Message): { header: string; newEntities: Messag
       },
     },
     {
-      offset: 15 + (fullname.length + 2),
+      offset: prefix.length + (fullname.length + 2),
       length: from?.toString().length || 0,
       type: 'hashtag',
     },
