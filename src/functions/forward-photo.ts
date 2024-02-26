@@ -14,6 +14,7 @@ export const forwardPhoto = async (ctx: Context) => {
   const { header, newEntities } = modEntities(ctx.msg);
   const newCaption = [header, caption].join('\n');
 
+  await ctx.react('🙏');
   await ctx.reply(basicAnswer, { reply_to_message_id: messageId });
   await bot.api.sendPhoto(target, photo, {
     caption: newCaption,

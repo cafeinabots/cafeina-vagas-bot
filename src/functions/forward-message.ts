@@ -14,6 +14,7 @@ export const forwardMessage = async (ctx: Context) => {
   const { header, newEntities } = modEntities(ctx.msg);
   const newText = [header, text].join('\n');
 
+  await ctx.react('🙏');
   await ctx.reply(basicAnswer, { reply_to_message_id: messageId });
   await bot.api.sendMessage(target, newText, { entities: newEntities });
 };

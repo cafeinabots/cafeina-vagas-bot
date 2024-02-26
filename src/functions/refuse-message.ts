@@ -7,5 +7,6 @@ export const refuseMessage = async (ctx: Context) => {
   }
   const messageId: number = ctx.msg.message_id;
 
+  await ctx.react('👎')
   await ctx.reply(wrongFormat, { reply_to_message_id: messageId });
 };

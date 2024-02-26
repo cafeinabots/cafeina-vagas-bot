@@ -14,6 +14,7 @@ bot.use(
     // Função chamada quando o limite é excedido.
     onLimitExceeded: async ctx => {
       await ctx.reply(floodMessage(3));
+      await ctx.react('👎');
     },
   }),
 );
