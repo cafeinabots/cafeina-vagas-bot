@@ -1,5 +1,4 @@
 import { Context } from 'grammy';
-import { MessageEntity } from 'grammy/types';
 import { modEntities } from '../utils/helper';
 import bot from '../bot';
 import { basicAnswer } from '../responses/messages';

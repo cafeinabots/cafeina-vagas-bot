@@ -8,10 +8,8 @@ import { development } from './utils/start';
 
 bot.use(
   limit({
-    // Permite apenas o processamento de 5 mensagens a cada 5 segundos, por usuário.
     timeFrame: 3000,
     limit: 5,
-    // Função chamada quando o limite é excedido.
     onLimitExceeded: async ctx => {
       await ctx.reply(floodMessage(3));
       await ctx.react('👎');
