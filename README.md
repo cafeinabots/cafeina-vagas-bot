@@ -18,9 +18,28 @@ Esse bot é responsável por receber recomendações de vagas para iniciantes e 
 
 ## Sobre o bot
 
-- Usamos a biblioteca [Telebot](https://github.com/mullwar/telebot) para criar o bot
-- Linguagem usada: **Node.js**
-- O nosso servidor está rodando no Replit.
+- Usamos o framework [grammY](https://github.com/grammyjs/grammY) para criar o bot
+- Linguagem usada: **TypeScript**
+- Projeto hospedado na Vercel.
+
+## Deploy
+
+- Com um bot criado no telegram e o Token em mãos, clique no botão abaixo e siga o passo a passo
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fcafeinabots%2Fcafeina-vagas-bot&env=BOT_TOKEN,CHAT_ID&project-name=cafeina-vagas-bot&repository-name=cafeina-vagas-bot)
+
+
+## Desenvolvimento
+
+```bash
+# Siga o processo de deploy acima, e faça um git clone de seu repo
+# Copie o .env.example e coloque o BOT_TOKEN do seu bot
+$ cp .env.example .env
+# Instale as dependências
+$ npm install
+# Execute o bot em modo de desenvolvimento
+$ npm run dev
+```
 
 ## Como contribuir?
 
